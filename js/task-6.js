@@ -25,13 +25,17 @@ destroyButton.addEventListener('click', () => {
 });
 
 function createBoxes(amount) {
+  destroyBoxes();
+  const boxes = [];
   for (let i = 0; i < amount; i++) {
     const box = document.createElement('div');
     box.style.width = 30 + i * 10 + 'px';
     box.style.height = 30 + i * 10 + 'px';
     box.style.backgroundColor = getRandomHexColor();
-    boxesContainer.appendChild(box);
+    boxes.push(box);
   }
+
+  boxesContainer.append(...boxes);
 }
 
 function destroyBoxes() {
